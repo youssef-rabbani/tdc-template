@@ -1,0 +1,16 @@
+{
+	"type": "mashup",
+	"name": "TDC",
+	"description": "TDC Template",
+	"homepage": "",
+	"author": "Hadi YASSINE",
+	"version": "1.0.0",
+	"preview": "preview.png",
+	"keywords": "qlik-sense, mashup, dashboard",
+	"license": "",
+	"repository": "",
+	"dependencies": {
+		"qlik-sense": ">=1.0.x"
+	},
+	"src": "/extensions/TDC/preview.png"
+}

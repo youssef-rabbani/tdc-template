@@ -1,6 +1,6 @@
 {
 	"type": "mashup",
-	"name": "TDC",
+	"name": "TDC 1",
 	"description": "TDC Template",
 	"homepage": "",
 	"author": "Hadi YASSINE",
@@ -12,5 +12,5 @@
 	"dependencies": {
 		"qlik-sense": ">=1.0.x"
 	},
-	"src": "/extensions/TDC/preview.png"
+	"src": "/extensions/tdc-template/preview.png"
 }

@@ -32,6 +32,9 @@ body{
     font-size: 16px;
     height:40px;
 }
+.sub-title{
+    font-size: 12px;
+}
 
 .btn-round {
     border-radius: 18px;
@@ -141,7 +144,7 @@ color:black;
 }
 
 .qv-object{
-    padding: 0 15px 15px;
+    padding: 0px;
     background-color: transparent;
 }
 .qv-object-kpi{

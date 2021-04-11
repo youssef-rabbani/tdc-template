@@ -30,7 +30,9 @@ body{
 .title{ 
     padding: 10px;
     font-size: 16px;
+    height:40px;
 }
+
 .btn-round {
     border-radius: 18px;
     width: 100px;

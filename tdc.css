@@ -8,6 +8,7 @@
 
 body{
     font-family: 'Source Sans Pro', sans-serif;
+    color:white;
     line-height: unset;
 	background-color: RGB(39,46,74);
 }
@@ -29,12 +30,24 @@ body{
   }
 .title{ 
     padding: 10px;
-    font-size: 16px;
+    font-size: 14px;
     height:40px;
 }
 .sub-title{
     font-size: 12px;
+    color: grey;
 }
+.topLeftKPI{
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+}
+.bottomLeftKPI{
+    border-right: 1px solid white;
+}
+.topRightKPI{
+    border-bottom: 1px solid white;
+}
+
 
 .btn-round {
     border-radius: 18px;

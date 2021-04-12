@@ -23,7 +23,7 @@ body{
     background-color: #131c38 !important;
   }
   .component {
-    padding: 16px;
+    padding: 0px 16px;
   }
   .margin-bottom {
     margin-bottom: 16px !important;
@@ -129,8 +129,40 @@ button:focus { outline:0 !important; }
     font-size: 30px;
 }
 /* qlik visulaization overrides*/
+#header.row {
+display:none
+}
+.qv-pt-meta-button {
+
+    display: none !important
+
+}
 .qv-collapsed-listbox .qv-state-count-bar{
     height:1px;
+}
+table.ng-scope {
+    border-collapse: separate;
+}
+header.qv-object-header.thin {
+    height: 0px !important;
+}
+
+.qv-pt .cell.header.left {
+color:white;
+border:none !important
+}
+th.cell.ng-scope.header.empty.left-meta.bottom-meta{
+color:white;
+border:none !important
+}
+table.ng-scope th {
+    border: none !important;
+}
+table.ng-scope td {
+    border: none !important;
+}
+.qv-pt tbody, .qv-pt tr{
+color:white;
 }
 /*********************************/
 

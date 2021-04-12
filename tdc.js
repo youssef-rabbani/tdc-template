@@ -34,8 +34,12 @@ require(["js/qlik"], function (qlik) {
 
 	var app3 = qlik.openApp('Overview-3.qvf', config);
 
+	var app4 = qlik.openApp('Initiatives.qvf', config);
+
 
 	//get objects -- inserted here --
+	
+	app4.getObject('QV-39','Rqns');
 	app3.getObject('QV-23','mfpJhMV');
 	
 	app3.getObject('QV-13','NPetkF');

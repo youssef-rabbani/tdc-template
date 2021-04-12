@@ -38,9 +38,12 @@ body{
     font-size: 14px;
     height:20px;
 }
+.inner-title{
+    font-size: 12px;
+}
 .sub-title{
     height:20px;
-    font-size: 12px;
+    font-size: 11px;
     color: grey;
 }
 .topLeftKPI{
@@ -53,7 +56,42 @@ body{
 .topRightKPI{
     border-bottom: 1px solid white;
 }
-
+.my-legend .legend-title {
+    text-align: left;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 90%;
+    }
+  .my-legend .legend-scale ul {
+    margin: 0;
+    padding: 0;
+    float: left;
+    list-style: none;
+    }
+  .my-legend .legend-scale ul li {
+    display: block;
+    float: left;
+    width: 136px;
+    margin-bottom: 6px;
+    text-align: center;
+    font-size: 80%;
+    list-style: none;
+    }
+  .my-legend ul.legend-labels li span {
+    display: block;
+    float: left;
+    height: 20px;
+    width: 35px;
+    margin: 0px;
+    }
+  .my-legend .legend-source {
+    font-size: 70%;
+    color: #999;
+    clear: both;
+    }
+  .my-legend a {
+    color: #777;
+    }
 
 .btn-round {
     border-radius: 18px;
@@ -90,6 +128,11 @@ button:focus { outline:0 !important; }
 .qv-object-text-image .qv-media-tool-html {
     font-size: 30px;
 }
+/* qlik visulaization overrides*/
+.qv-collapsed-listbox .qv-state-count-bar{
+    height:1px;
+}
+/*********************************/
 
 paper-card.style-scope.header-card.x-scope.paper-card-0{
 box-shadow: none;

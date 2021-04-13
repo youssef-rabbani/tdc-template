@@ -129,8 +129,27 @@ button:focus { outline:0 !important; }
     font-size: 30px;
 }
 /* qlik visulaization overrides*/
+
+.sn-kpi-ellips-text.sn-kpi-no-shrink .sn-kpi-value {
+    font-size: 45px !important;
+}
+
+
+.qv-object-text-image .qv-media-tool-html div {
+    margin-top: -25px !important;
+}
 #header.row {
 display:none
+}
+.qv-pt .cell .value{
+    color:white;
+}
+div#QV-1-8a tr:first-child{
+    visibility: collapse;
+}
+.qv-object .qv-object-header.thin{
+    padding-bottom: 0;
+    border: none;
 }
 .qv-pt-meta-button {
 

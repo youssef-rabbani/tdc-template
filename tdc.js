@@ -40,21 +40,22 @@ require(["js/qlik"], function (qlik) {
 
 
 	//get objects -- inserted here --
-	app5.getObject('QV-5-1','fb582e84-142a-456b-ae4c-205a570cd07c');
+	app3.getObject('QV-21-1','3f9c18f8-6d43-4465-a595-7c722ae33982');
+	app3.getObject('QV-22','3f9c18f8-6d43-4465-a595-7c722ae33982');
+	app3.getObject('QV-21','3f9c18f8-6d43-4465-a595-7c722ae33982');
+	
 	app5.getObject('QV32','rJWmnra');
 	
 	app3.getObject('QV37','24fb6fe4-acd8-437f-a0ad-0f88ba7c7990');
 	app4.getObject('QV-40','Rqns');
 	
 	app4.getObject('QV-39','Rqns');
-	
-	
 	app3.getObject('QV-13','NPetkF');
 	app3.getObject('QV-11','DhmLK');
 	app3.getObject('QV-16','a44db455-c169-47f9-9a69-d6ad85aadf8c');
 	app3.getObject('QV-15','92cc4669-e45d-47f0-9b7d-859ecee6e34a');
-	app3.getObject('QV-21','7d756d79-54ca-42ff-a0b4-bd3f526b4e73');
-	app3.getObject('QV-22','24fb6fe4-acd8-437f-a0ad-0f88ba7c7990');
+	
+	
 	app3.getObject('QV-6','zGLYr');
 	app3.getObject('QV-5','mFYgHxD');
 	app3.getObject('QV-4','PAMzpN');

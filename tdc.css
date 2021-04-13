@@ -46,6 +46,9 @@ body{
     font-size: 11px;
     color: grey;
 }
+/*.test .div text{
+    font-size: 10px !important;
+}*/
 .topLeftKPI{
     border-right: 1px solid white;
     border-bottom: 1px solid white;

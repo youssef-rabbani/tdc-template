@@ -145,9 +145,9 @@ button:focus { outline:0 !important; }
 }
 
 
-.qv-object-text-image .qv-media-tool-html div {
+/*.qv-object-text-image .qv-media-tool-html div {
     margin-top: -25px !important;
-}
+}*/
 #header.row {
 display:none
 }

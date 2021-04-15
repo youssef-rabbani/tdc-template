@@ -40,6 +40,7 @@ require(["js/qlik"], function (qlik) {
 
 
 	//get objects -- inserted here --
+	app4.getObject('QV-51','Rqns');
 	app5.getObject('QV-44','mZKsFJ');
 	app3.getObject('QV-21-1','3f9c18f8-6d43-4465-a595-7c722ae33982');
 	app3.getObject('QV-22','3f9c18f8-6d43-4465-a595-7c722ae33982');

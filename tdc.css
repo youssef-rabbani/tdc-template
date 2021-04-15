@@ -132,6 +132,10 @@ button:focus { outline:0 !important; }
     font-size: 30px;
 }
 /* qlik visulaization overrides*/
+.qv-object-text-image .qv-media-tool-html {
+    font-size: 10px !important;
+	text-align: center !important;
+}
 .qv-pt .cell.null-value {
     background-color: transparent !important;
 }

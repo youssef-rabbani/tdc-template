@@ -5,7 +5,179 @@
     right: 5px !important;
     left: auto !important;
 }
+/*---------------------------------By Hadi------------------------------*/
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent; 
+  }
+   ::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+  
+  
+  qliksense-card .card-title{
+  color:white;
+  }
+  
+  .qv-object-ChartTable .css_bars_row {
+      transition: all 0.3s ease;
+      float: left;
+      width: 98%;
+      overflow: hidden;
+      margin-bottom: 10px;
+      margin-top: 10px;
+      -moz-border-radius: 0 10px 10px 0;
+      cursor: pointer;
+      height: 25px;
+  }
+  .Pre-Chart-Title{
+      text-align:end;
+      padding-right:5px;
+  }
+  .btn-round {
+      height: 22px;
+      padding-top: 3px;
+      border-radius: 18px;
+      width: 100px;
+      font-size: 10px;
+  }
+  .btn-group, .btn-group-vertical {
+      float: left;
+      padding-left: 10px;
+  }
+  
+  
+  .ButtonGrpSpan{
+      float: right;
+      font-size: 11px;
+      padding-right: 5px;
+      vertical-align: bottom !important;
+      padding-top: 4px;
+  }
+  .ButtonGrpSpanLeft{
+      float: left;
+      font-size: 14px;
+      padding-left: 5px;
+      vertical-align: bottom !important;
+      padding-top: 4px;
+  }
+  .sub-title{
+    text-align: center;
+    height:20px;
+    font-size: 11px;
+    color: grey;
+}
+  .sub-title-1{
+      font-size: 8px;
+      color: RGB(240,240,240);
+      font-style: italic;
+      margin-top: -4px;
+      margin-bottom: -5px;
+  }
+  .sub-title-2{
+      font-size: 9.5px;
+      font-style: italic;
+      color: RGB(181,181,181);
+      margin-top: -5px;
+  }
+  .LegendTitle{
+      vertical-align:bottom;
+      width: 62px !important;
+      font-size:8px;
+      text-align: initial;
+      padding-left: 1px;
+      padding-top: 10px;
+  }
+  
+  .legend-labels{
+      width: 100%;
+  }
+  
+  
+  .paper-toolbar-0 #middleBar.paper-toolbar {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+  }
+  
+  .PaperTitle span {
+      padding-left: 58px;
+  }
+  .PaperTitle span:hover {
+      cursor: pointer;
+  }
+  
+      
+  .PaperTitleSelectedItem  {
+      text-decoration: underline;
+      text-decoration-color: RGB(240,168,89);
+      text-underline-offset: 6px;
+      text-decoration-thickness: 3px;
+  }
 
+  .qv-pt col:nth-child(n+2){
+    width:50px!important
+    }
+    th.cell.ng-scope.header.top {
+        font-size: 11px;
+    }
+    
+    #QV-51 .qv-pt .cell.header.left {
+        color: white;
+        border: none !important;
+        padding-bottom: 18px !important;
+    }
+    
+    #QV-44 td.Pre-Chart-TitleDiv {
+        width: 60% !important;
+    }
+    
+    #QV-45 td.Pre-Chart-TitleDiv {
+        width: 60% !important;
+    }
+    
+    #QV-44 .qv-object-ChartTable .css_bars_row, #QV-45 .qv-object-ChartTable .css_bars_row {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        height: 20px;
+    }
+    
+    #QV-42 {
+        margin-left: -42px;
+        margin-top: 5px;
+    }
+    
+    #QV-43 {
+        margin-left: -42px;
+        margin-top: 5px;
+    }
+    
+    .qv-pt .cell.header .value .left
+    {
+    text-align:red !important;
+    background-color:white !important;
+    }
+    
+    .qv-pt .cell.header .value .left span{
+    text-align:red !important;
+    background-color:red !important;
+    }
+  
+  
+  
+  /*---------------------------------By Hadi------------------------------*/
+    
 body{
     font-family: 'Source Sans Pro', sans-serif;
     color:white;
@@ -31,24 +203,13 @@ body{
 .title{ 
     padding: 10px;
     font-size: 14px;
-    height:40px;
-}
-.title{ 
-    padding: 10px;
-    font-size: 14px;
     height:20px;
 }
 .inner-title{
     font-size: 12px;
 }
-.sub-title{
-    height:20px;
-    font-size: 11px;
-    color: grey;
-}
-/*.test .div text{
-    font-size: 10px !important;
-}*/
+
+
 .topLeftKPI{
     border-right: 1px solid white;
     border-bottom: 1px solid white;
@@ -74,7 +235,7 @@ body{
   .my-legend .legend-scale ul li {
     display: block;
     float: left;
-    width: 110px;
+    width: 92px;
     margin-bottom: 6px;
     text-align: center;
     font-size: 10px;
@@ -84,7 +245,7 @@ body{
     display: block;
     float: left;
     height: 20px;
-    width: 35px;
+    width: 30px;
     margin: 0px;
     }
   .my-legend .legend-source {
@@ -95,12 +256,9 @@ body{
   .my-legend a {
     color: #777;
     }
-
-.btn-round {
-    border-radius: 18px;
-    width: 100px;
-    font-size: 10px;
-}
+    .legend-item {
+        padding:0px 4px !important;
+    }
 
 .btn-right{
 	margin-left: -10px;
@@ -201,8 +359,13 @@ box-shadow: none;
 	  background-color:RGB(19,28,56,0);
 }
 
+#logo1{
+    background-image: url('./logo1.png');
+}
+#logo2{
+    background-image: url('./logo2.png');
+}
 .paper-toolbar-0 {
-    background-image: url(1.png) !important;
     background-size: 100%;
     background-repeat: no-repeat;
     background-color: RGB(39,46,74);

@@ -38,38 +38,62 @@ require(["js/qlik"], function (qlik) {
 
 	var app5 = qlik.openApp('TDC.qvf', config);
 
+	var app6 = qlik.openApp('Initiatives (1).qvf', config);
+
+	var app7 = qlik.openApp('Initiatives (1).qvf', config);
+
 
 	//get objects -- inserted here --
-	app4.getObject('QV-51','Rqns');
-	app5.getObject('QV-44','mZKsFJ');
+	app5.getObject('QV36','6c204984-92aa-4c68-86ec-ee526ce25325');
+	app5.getObject('QV34','6c204984-92aa-4c68-86ec-ee526ce25325');
+	app5.getObject('QV35','1693f7d4-86bd-496c-9ff0-fdaf911729e8');
+	app5.getObject('QV33','1693f7d4-86bd-496c-9ff0-fdaf911729e8');
+	app5.getObject('QV-31','1693f7d4-86bd-496c-9ff0-fdaf911729e8');
+	app5.getObject('QV-43','9e5fa270-8101-463b-adc4-19c0875ec578');
+	app5.getObject('QV-42','1693f7d4-86bd-496c-9ff0-fdaf911729e8');
+	app5.getObject('QV-41','1693f7d4-86bd-496c-9ff0-fdaf911729e8');
+	
+	app5.getObject('QV-39','mYbnjP');
+	
+	app7.getObject('QV-49','fnPbLf');
+	
+	
+	
+	app5.getObject('QV-44','d0ac369d-f9f9-49fe-a81c-52137567160b');
+	
+	
+	
+	
+	
+	
 	app3.getObject('QV-21-1','3f9c18f8-6d43-4465-a595-7c722ae33982');
-	app3.getObject('QV-22','3f9c18f8-6d43-4465-a595-7c722ae33982');
-	app3.getObject('QV-21','3f9c18f8-6d43-4465-a595-7c722ae33982');
+	
+	
 	
 	app5.getObject('QV32','rJWmnra');
 	
-	app3.getObject('QV37','24fb6fe4-acd8-437f-a0ad-0f88ba7c7990');
-	app4.getObject('QV-40','Rqns');
-	
-	app4.getObject('QV-39','Rqns');
-	app3.getObject('QV-13','NPetkF');
-	app3.getObject('QV-11','DhmLK');
-	app3.getObject('QV-16','a44db455-c169-47f9-9a69-d6ad85aadf8c');
-	app3.getObject('QV-15','92cc4669-e45d-47f0-9b7d-859ecee6e34a');
 	
 	
-	app3.getObject('QV-6','zGLYr');
-	app3.getObject('QV-5','mFYgHxD');
-	app3.getObject('QV-4','PAMzpN');
-	app3.getObject('QV-3','TEPLnq');
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	app3.getObject('QV-2','TEPLnq');
 	app3.getObject('QV-1','BHFqp');
-	app3.getObject('QV-14','a834aeab-db64-4cd1-bea6-9ba52e874343');
-	app3.getObject('QV-12','99551a4a-7491-4699-9984-fcb482208386');
-	app3.getObject('QV-10','83a62706-9715-4fab-bb64-698a8a3c959f');
-	app3.getObject('QV-9','a0661c79-9de9-4270-be20-eb32e45a3369');
-	app3.getObject('QV-7','f15c5f34-d89d-4582-8c5d-6ab0e7fa5503');
-	app3.getObject('QV-8','af73e3e3-f879-444d-bbac-09d093c4f92c');
+	
+	
+	
+	
+	
+	
 
 	
 
@@ -82,6 +106,12 @@ require(["js/qlik"], function (qlik) {
 	if (app) {
 		app.getObject('CurrentSelections','CurrentSelections');
 		$(".filter-drawer-toggle, paper-menu paper-item").click(function() {
+			qlik.resize();
+		});
+		$(".btn-round").click(function() {
+			qlik.resize();
+		});
+		$(".PaperTitleItem").click(function() {
 			qlik.resize();
 		});
 	} else {

@@ -43,6 +43,9 @@
     <link rel="stylesheet" href="./tdc.css">
     <script src="./tdc.js"></script>
     <!-- fontawesome -->
+    <!-- to switch pages -->
+    <!-- $(document.getElementById('pdOverView')).removeClass("iron-selected") -->
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script>
       function BtnClickSwitch(thisBtn, OtherBtn, leftBtn, rightBtn) {
@@ -98,7 +101,6 @@
       });
       $(document).ready(function () {
         $("#selectAbsolute").click(function () {
-          console.log("hello");
           $("#absolute").show();
           $("#relative").hide();
           var thisBtn = $("#selectAbsolute");
@@ -106,7 +108,6 @@
           BtnClickSwitch(thisBtn, otherBtn, thisBtn, otherBtn);
         });
         $("#selectRelative").click(function () {
-          console.log("hello2");
           $("#absolute").hide();
           $("#relative").show();
           var thisBtn = $("#selectRelative");
@@ -115,9 +116,56 @@
         });
       });
       $(document).ready(function () {
+        $("#selectOverall").click(function () {
+          $("#overall").show();
+          $("#segment").hide();
+          var thisBtn = $("#selectOverall");
+          var otherBtn = $("#selectSegment");
+          BtnClickSwitch(thisBtn, otherBtn, thisBtn, otherBtn);
+        });
+        $("#selectSegment").click(function () {
+          $("#overall").hide();
+          $("#segment").show();
+          var thisBtn = $("#selectSegment");
+          var otherBtn = $("#selectOverall");
+          BtnClickSwitch(thisBtn, otherBtn, otherBtn, thisBtn);
+        });
+      });
+
+      $(document).ready(function () {
+        $(".PaperTitleItem").on("click", function () {
+          $(".PaperTitleItem").removeClass("PaperTitleSelectedItem");
+          $(".paper-body").removeClass("iron-selected");
+          $(this).addClass("PaperTitleSelectedItem");
+          switch (this.id) {
+            case "btnOverview":
+              $("#pdOverView").addClass("iron-selected");
+              break;
+            case "btnInitiatives":
+              $("#pdInitiatives").addClass("iron-selected");
+              break;
+            case "btnAdvocacy":
+              $("#pdAdvocacy").addClass("iron-selected");
+              break;
+            case "btnEntering":
+              $("#pdEnteringLeaving").addClass("iron-selected");
+              break;
+            case "btnMobility":
+              break;
+            case "btnVisitorHubs":
+              break;
+            case "btnSaudiHospitality":
+              break;
+
+            default:
+          }
+        });
+      });
+      $(document).ready(function () {
         $("#selectSourceMarket-1").click();
         $("#selectSourceMarket-2").click();
         $("#selectAbsolute").click();
+        $("#selectOverall").click();
       });
     </script>
   </head>
@@ -135,466 +183,751 @@
           <paper-toolbar>
             <paper-icon-button icon="menu" id="nav-menu-button" class="visible-xs-block"></paper-icon-button>
 
-            <div class="title"></div>
+            <div class="PaperTitle" style="padding-left: 100px; height: 25px; font-size: 15px">
+              <span style="height:65px; width:100px"></span>
+              <span id="btnOverview" class="PaperTitleItem">Overview</span>
+              <span id="btnInitiatives" class="PaperTitleItem PaperTitleSelectedItem">Initiatives</span>
+              <span id="btnAdvocacy" class="PaperTitleItem">Advocacy</span>
+              <span id="btnEntering" class="PaperTitleItem">Entering &amp; Leaving</span>
+              <span id="btnMobility" class="PaperTitleItem">Mobility</span>
+              <span id="btnVisitorHubs" class="PaperTitleItem">Visitor Hubs</span>
+              <span id="btnSaudiHospitality" class="PaperTitleItem">Saudi Hospitality</span>
+              <span id="logo2"></span>
+            </div>
             <!--TITLE-->
-
           </paper-toolbar>
         </div>
-        <paper-drawer-panel id="nav-drawer" drawer-width="134px">
-          <div drawer="">
-            <paper-menu selected="0">
-              <!-- LEFT NAV -->
-              <!-- Edit <paper-item> to customize left panel -->
-              <!-- A <paper-item> will navigate to the corresponding .paper-body view (below) -->
-              <paper-item>
-                <div class="icon">
-                  <i class="fa fa-tachometer" aria-hidden="true"></i>
+
+        <iron-pages main="" selected="0">
+          <!-- Each .paper-body contained within <iron-pages> is a view. Copy and paste to add more views. -->
+          <!-- Don't forget to add a <paper-item> in the <paper-menu> above to be able to navigate to any view you add -->
+          <div class="paper-body" id="pdOverView">
+            <div class="container-fluid">
+              <!-- A .qvplaceholder will become a droppable area in the dev-hub -->
+              <!-- Each .qvplaceholder must have a unique id -->
+              <!-- These .qvplaceholder objects below have an extra class, .kpi, which applies some simple styles intended for kpi objects -->
+              <div class="row" style="height: 45px; width: 80%">
+                <div class="col-xs-2" style="height: 100%">
+                  <div id="QV-1" class="with-title qvobject" style="width: 100%; height: 100%"></div>
                 </div>
-                <div class="menu-option">Overview</div>
-              </paper-item>
-              <paper-item>
-                <div class="icon">
-                  <i class="fa fa-compass" aria-hidden="true"></i>
+                <div class="col-xs-2" style="height: 100%">
+                  <div id="QV-2" class="qvobject" style="width: 100%; height: 100%"></div>
                 </div>
-                <div class="menu-option">Initiatives</div>
-              </paper-item>
-              <paper-item>
-                <div class="icon">
-                  <i class="fa fa-file-text" aria-hidden="true"></i>
+                <div class="col-xs-2" style="height: 100%">
+                  <div id="QV-3" class="qvplaceholder" style="width: 100%; height: 100%"></div>
                 </div>
-                <div class="menu-option">Advocacy</div>
-              </paper-item>
-            </paper-menu>
+                <div class="col-xs-2" style="height: 100%">
+                  <div id="QV-4" class="qvplaceholder" style="width: 100%; height: 100%"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12 col-sm-4">
+                  <qliksense-card content-height="600px">
+                    <div class="card-title qvt-visualization-title">
+                      Visitor Satisfaction
+                    </div>
+                    <div class="row" style="height: 100px; padding: 0px 16px">
+                      <div class="col-xs-6" style="height: 100%; padding: 0px">
+                        <div class="row">
+                          <div class="col-xs-12" style="height: 75px">
+                            <div class="with-title qvplaceholder" id="QV-5"></div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-xs-12 sub-title" style="height: 25px; top: -18px">
+                            <div class="with-title qvplaceholder" id="QV-5-1">
+                              Domestic - Winter 2021
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xs-6" style="height: 100%; padding: 0px">
+                        <div class="row">
+                          <div class="col-xs-12" style="height: 75px">
+                            <div class="with-title qvplaceholder" id="QV-6"></div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-xs-12 sub-title" style="height: 25px; top: -18px">
+                            <div class="with-title qvplaceholder" id="QV-6-1" style="height: 100%">
+                              International - Summer 2020
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row" style="height: 450px; padding: 0px 16px">
+                      <div class="col-xs-12">
+                        <div class="row">
+                          <div class="col-xs-6 topLeftKPI" style="padding: 0px">
+                            <div class="row" style="padding: 0px 26px">
+                              <div class="col-xs-9" style="padding: 0px">
+                                <p class="inner-title">
+                                  Entering &amp; Leaving
+                                </p>
+                                <p class="sub-title-1">
+                                  Satisfaction of International Visitors
+                                </p>
+                              </div>
+                              <div class="col-xs-3">
+                                <img src="plane.png" style="width: 25px">
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-xs-12" style="height: 40px; padding: 0px">
+                                <div class="qvplaceholder" id="QV-7"></div>
+                              </div>
+                              <div class="col-xs-12 sub-title-2" style="padding: 0px 26px">
+                                Split of Airports by satisfaction scores of
+                                International Visitors
+                              </div>
+                            </div>
+                            <div class="row" style="height: 135px; padding: 3px 15px 0px 15px">
+                              <div class="qvplaceholder" id="QV-8"></div>
+                            </div>
+                          </div>
+                          <div class="col-xs-6 topRightKPI" style="padding: 0px">
+                            <div class="row" style="padding: 0px 26px">
+                              <div class="col-xs-9 inner-title" style="padding: 0px">
+                                <p class="inner-title">Local Taxis</p>
+                                <p class="sub-title-1">
+                                  Satisfaction of International Visitors
+                                </p>
+                              </div>
+                              <div class="col-xs-3">
+                                <img src="car.png" style="width: 25px">
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-xs-12" style="height: 40px; padding: 0px">
+                                <div class="qvplaceholder" id="QV-9"></div>
+                              </div>
+                              <div class="col-xs-12 sub-title-2" style="padding: 0px 26px">
+                                Split of Destinations by satisfaction scores of
+                                International Visitors
+                              </div>
+                            </div>
+                            <div class="row" style="height: 135px; padding: 3px 15px 0px 15px">
+                              <div class="with-title qvplaceholder" id="QV-10"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-xs-12">
+                            <div class="row" style="padding: 0px 16px">
+                              <div class="col-xs-6 bottomLeftKPI" style="height: 225px; padding: 0px">
+                                <div class="row" style="margin-top: 15px; padding: 0px 16px">
+                                  <div class="col-xs-9" style="padding: 0px">
+                                    <p class="inner-title">Visitor Hubs</p>
+                                    <p class="sub-title-1">
+                                      Satisfaction of International Visitors
+                                    </p>
+                                  </div>
+                                  <div class="col-xs-3" style="padding-left: 0px">
+                                    <img src="map.png" style="width: 25px">
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-xs-12" style="height: 40px; padding: 0px">
+                                    <div class="qvplaceholder" id="QV-11"></div>
+                                  </div>
+                                  <div class="col-xs-12 sub-title-2">
+                                    Split of Priority Sites meeting basic
+                                    experience standard
+                                  </div>
+                                </div>
+                                <div class="row" style="
+                                    height: 135px;
+                                    padding: 3px 15px 0px 3px;
+                                  ">
+                                  <div class="with-title qvplaceholder" id="QV-12"></div>
+                                </div>
+                              </div>
+                              <div class="col-xs-6 bottomRightKPI" style="height: 225px; padding: 0px">
+                                <div class="row" style="padding: 0px 26px; margin-top: 15px">
+                                  <div class="col-xs-9" style="padding: 0px">
+                                    <p class="inner-title">Saudi Hospitality</p>
+                                    <p class="sub-title-1">
+                                      Hafawah of all Visitors
+                                    </p>
+                                  </div>
+                                  <div class="col-xs-3" style="padding-left: 26px">
+                                    <img src="person.png" style="width: 25px">
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-xs-12" style="height: 40px; padding: 0px">
+                                    <div class="qvplaceholder" id="QV-13"></div>
+                                  </div>
+                                  <div class="col-xs-12 sub-title-2" style="padding: 0px 26px">
+                                    Split of Destinations by Hafawah Index
+                                  </div>
+                                </div>
+                                <div class="row" style="
+                                    height: 135px;
+                                    margin-top: 10px;
+                                    padding: 3px 0px 0px 15px;
+                                  ">
+                                  <div class="with-title qvplaceholder" id="QV-14"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row" style="height: 50px; padding: 16px">
+                      <div class="my-legend" style="padding-top: 4px">
+                        <div class="legend-scale">
+                          <ul class="legend-labels">
+                            <div class="row">
+                              <div class="col-xs-4">
+                                <li>
+                                  <span style="background: #da8177"></span>
+                                  <span class="LegendTitle">Low (0 - 60%)</span>
+                                </li>
+                              </div>
+                              <div class="col-xs-4">
+                                <li>
+                                  <span style="background: #f8c143"></span>
+                                  <span class="LegendTitle">Mid (60-80%)</span>
+                                </li>
+                              </div>
+                              <div class="col-xs-4">
+                                <li>
+                                  <span style="background: #9fcd63"></span>
+                                  <span class="LegendTitle">High (&gt;80%)</span>
+                                </li>
+                              </div>
+                            </div>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </qliksense-card>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                  <qliksense-card content-height="600px">
+                    <div class="card-title qvt-visualization-title">
+                      Recommendation (NPS)
+                    </div>
+                    <div class="row" style="height: 100px; padding: 0px 16px">
+                      <div class="col-xs-6" style="height: 100%; padding: 0px">
+                        <div class="row">
+                          <div class="col-xs-12" style="height: 75px">
+                            <div class="with-title qvplaceholder" id="QV-15"></div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-xs-12 sub-title" style="height: 25px; top: -18px">
+                            <div class="with-title qvplaceholder" id="QV-15-1">
+                              International - Summer 2020
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xs-6" style="height: 100%; padding: 0px">
+                        <div class="row">
+                          <div class="col-xs-12" style="height: 75px">
+                            <div class="with-title qvplaceholder" id="QV-16"></div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-xs-12 sub-title" style="height: 25px; top: -18px">
+                            <div class="with-title qvplaceholder" id="QV-16-1">
+                              Domestic - Winter 2021
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row" style="height: 170px; padding: 0px 16px">
+                      <div class="col-xs-12 inner-title" style="padding: 0px">
+                        <span class="ButtonGrpSpanLeft">By Visitor Profiles</span>
+                        <span class="ButtonGrpSpan">vs. Last Period</span>
+                      </div>
+                      <div class="col-xs-12" style="height: 140px; padding: 0px">
+                        <div class="row">
+                          <div class="col-xs-12" style="height: 100px">
+                            <div class="with-title qvplaceholder" id="QV-17"></div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-xs-12" style="height: 40px">
+                            <div style="height: 47px; margin-top: -10px" class="with-title qvplaceholder" id="QV-18"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row" style="height: 270px; padding: 0px 16px">
+                      <div class="col-xs-12" style="height: 100%; padding: 0px">
+                        <div class="d-flex justify-content-end" style="height: 35px; text-align: center">
+                          <div class="btn-group toggle" role="group" aria-label="Basic example">
+                            <button type="button" id="selectSourceMarket-1" class="btn btn-secondary btn-round btn-left">
+                              By Source Market
+                            </button>
+                            <button type="button" id="selectDestination-1" class="btn btn-secondary btn-round btn-right">
+                              By Destination
+                            </button>
+                          </div>
+                          <span class="ButtonGrpSpan">vs. Last Period</span>
+                        </div>
+                        <div id="sourceMarket-1" style="height: 90%">
+                          <div id="QV-19" class="qvplaceholder" style="height: 100%"></div>
+                        </div>
+                        <div id="destination-1" style="height: 90%">
+                          <div id="QV-20" class="qvplaceholder" style="height: 100%"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row" style="height: 50px; padding: 30px">
+                      <div class="my-legend">
+                        <div class="legend-scale">
+                          <ul class="legend-labels">
+                            <div class="row">
+                              <div class="col-xs-3 legend-item">
+                                <li style="width: 100%">
+                                  <span style="background: #da8177"></span>
+                                  <span class="LegendTitle">Low(-100-0)</span>
+                                </li>
+                              </div>
+                              <div class="col-xs-3 legend-item">
+                                <li>
+                                  <span style="background: #f8c143"></span>
+                                  <span class="LegendTitle">Good(0-30)</span>
+                                </li>
+                              </div>
+                              <div class="col-xs-3 legend-item" style="padding: 0">
+                                <li style="width: 100%">
+                                  <span style="background: #9fcd63"></span>
+                                  <span class="LegendTitle">Great(30-70)</span>
+                                </li>
+                              </div>
+                              <div class="col-xs-3 legend-item">
+                                <li>
+                                  <span style="background: #3d8630"></span>
+                                  <span class="LegendTitle">Excelent(70-100)</span>
+                                </li>
+                              </div>
+                            </div>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </qliksense-card>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                  <qliksense-card content-height="600px">
+                    <div class="card-title qvt-visualization-title">
+                      Re-Visitation Intention
+                    </div>
+                    <div class="row" style="height: 100px; padding: 0px 16px">
+                      <div class="col-xs-6" style="height: 100%; padding: 0px">
+                        <div class="row">
+                          <div class="col-xs-12" style="height: 75px">
+                            <div class="with-title qvplaceholder" id="QV-21"></div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-xs-12 sub-title" style="height: 25px; top: -18px">
+                            <div class="with-title qvplaceholder" id="QV-21-1">
+                              Domestic - Winter 2021
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xs-6" style="height: 100%; padding: 0px">
+                        <div class="row">
+                          <div class="col-xs-12" style="height: 75px">
+                            <div class="with-title qvplaceholder" id="QV-22"></div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-xs-12 sub-title" style="height: 25px; top: -18px">
+                            <div class="with-title qvplaceholder" id="QV-022">
+                              International - Summer 2020
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row" style="height: 170px; padding: 0px 16px">
+                      <div class="col-xs-12 inner-title" style="padding: 0px">
+                        <span class="ButtonGrpSpanLeft">By Visitor Profiles</span>
+                        <span class="ButtonGrpSpan">vs. Last Period</span>
+                      </div>
+
+                      <div class="col-xs-12" style="height: 140px; padding: 0px">
+                        <div class="row">
+                          <div class="col-xs-12" style="height: 91px">
+                            <div class="qvplaceholder" id="QV-23"></div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-xs-12" style="height: 46px">
+                            <div class="qvplaceholder" id="QV-24"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row" style="height: 270px; padding: 0px 16px">
+                      <div class="col-xs-12" style="height: 100%; padding: 0px">
+                        <div class="d-flex justify-content-end" style="height: 35px; text-align: center">
+                          <div class="btn-group toggle" role="group" aria-label="Basic example">
+                            <button type="button" id="selectSourceMarket-2" class="btn btn-secondary btn-round">
+                              By Source Market
+                            </button>
+                            <button type="button" id="selectDestination-2" class="btn btn-secondary btn-round">
+                              By Destination
+                            </button>
+                          </div>
+                          <span class="ButtonGrpSpan">vs. Last Period</span>
+                        </div>
+                        <div id="sourceMarket-2" style="height: 90%">
+                          <div id="QV-25" class="qvplaceholder" style="height: 100%"></div>
+                        </div>
+                        <div id="destination-2" style="height: 90%">
+                          <div id="QV-26" class="qvplaceholder" style="height: 100%"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row" style="height: 50px; padding: 16px">
+                      <div class="my-legend" style="padding-top: 13px">
+                        <div class="legend-scale">
+                          <ul class="legend-labels">
+                            <div class="row">
+                              <div class="col-xs-4">
+                                <li>
+                                  <span style="background: #da8177"></span>
+                                  <span class="LegendTitle">Low (0 - 60%)</span>
+                                </li>
+                              </div>
+                              <div class="col-xs-4">
+                                <li>
+                                  <span style="background: #f8c143"></span>
+                                  <span class="LegendTitle">Mid (60-80%)</span>
+                                </li>
+                              </div>
+                              <div class="col-xs-4">
+                                <li>
+                                  <span style="background: #9fcd63"></span>
+                                  <span class="LegendTitle">High (&gt;80%)</span>
+                                </li>
+                              </div>
+                            </div>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </qliksense-card>
+                </div>
+              </div>
+            </div>
           </div>
-
-          <iron-pages main="" selected="0">
-            <!-- Each .paper-body contained within <iron-pages> is a view. Copy and paste to add more views. -->
-            <!-- Don't forget to add a <paper-item> in the <paper-menu> above to be able to navigate to any view you add -->
-            <div class="paper-body">
-              <div class="container-fluid">
-                <!-- A .qvplaceholder will become a droppable area in the dev-hub -->
-                <!-- Each .qvplaceholder must have a unique id -->
-                <!-- These .qvplaceholder objects below have an extra class, .kpi, which applies some simple styles intended for kpi objects -->
-                <div class="row" style="height: 45px; width: 100%">
-                  <div class="col-xs-3" style="height: 100%">
-                    <div id="QV-1" class="with-title qvobject" style="width: 100%; height: 100%"></div>
-                  </div>
-                  <div class="col-xs-3" style="height: 100%">
-                    <div id="QV-2" class="qvobject" style="width: 100%; height: 100%"></div>
-                  </div>
-                  <div class="col-xs-3" style="height: 100%">
-                    <div id="QV-3" class="qvobject" style="width: 100%; height: 100%"></div>
-                  </div>
-                  <div class="col-xs-3" style="height: 100%">
-                    <div id="QV-4" class="qvobject" style="width: 100%; height: 100%"></div>
+          <div class="paper-body" id="pdInitiatives">
+            <div class="container-fluid">
+              <!--Filters-->
+              <div class="row" style="height: 45px; width: 80%">
+                <div class="col-xs-4" style="height: 100%">
+                  <div id="QV-46" class="qvplaceholder" style="width: 100%; height: 100%"></div>
+                </div>
+                <div class="col-xs-4" style="height: 100%">
+                  <div id="QV-47" class="qvplaceholder" style="width: 100%; height: 100%"></div>
+                </div>
+                <div class="col-xs-4" style="height: 100%">
+                  <div id="QV-48" class="qvplaceholder" style="width: 100%; height: 100%"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12 col-sm-4">
+                  <div class="item bg-dark" style="height: 640px">
+                    <div class="row" style="padding: 0px 26px">
+                      <div class="col-xs-12" style="height: 40px; padding: 26px 16px">
+                        Overall Status
+                      </div>
+                      <div class="col-xs-12" style="height: 240px">
+                        <div class="with-title qvobject" id="QV-49"></div>
+                      </div>
+                    </div>
+                    <div class="row" style="padding: 0px 26px">
+                      <div class="col-xs-12" style="height: 40px; padding: 26px 16px">
+                        Working Group Status
+                      </div>
+                      <div class="col-xs-12" style="height: 240px">
+                        <div class="with-title qvplaceholder" id="QV-50"></div>
+                      </div>
+                    </div>
+                    <div class="row" style="height: 50px">
+                      <div class="my-legend" style="padding: 0px 26px">
+                        <div class="legend-scale">
+                          <ul class="legend-labels">
+                            <div class="row">
+                              <div class="col-xs-4">
+                                <li>
+                                  <span style="background: #68399b"></span>Completed
+                                </li>
+                              </div>
+                              <div class="col-xs-4">
+                                <li>
+                                  <span style="background: #9fcd63"></span>
+                                  On
+                                  Track
+                                </li>
+                              </div>
+                              <div class="col-xs-4">
+                                <li>
+                                  <span style="background: #da8177"></span>Delayed
+                                </li>
+                              </div>
+                              <div class="col-xs-4">
+                                <li>
+                                  <span style="background: #b8b8b8"></span>Committed
+                                </li>
+                              </div>
+                              <div class="col-xs-4">
+                                <li>
+                                  <span style="background: #bd761a"></span>Proposed
+                                </li>
+                              </div>
+                            </div>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-xs-12 col-sm-4">
-                    <qliksense-card content-height="600px">
-                      <div class="card-title qvt-visualization-title">
-                        Visitor Satisfaction
+                <div class="col-xs-12 col-sm-8">
+                  <div class="item bg-dark" style="height: 640px">
+                    <div class="row">
+                      <div class="col-xs-12" style="height: 40px; padding: 26px">
+                        Initiative Progress
                       </div>
-                      <div class="row" style="height: 100px; padding: 0px 16px">
-                        <div class="col-xs-6" style="height: 100%; padding: 0px">
-                          <div class="row">
-                            <div class="col-xs-12" style="height: 75px;">
-                              <div class="with-title qvobject" id="QV-5"></div>
-                            </div>
-                          </div>
-                          <div class="row">
-                             <div class="col-xs-12 sub-title" style="height: 25px; top:-18px">
-                              <div class="with-title qvplaceholder" id="QV-5-1"></div>
-                            </div>
+                      <div class="col-xs-12" style="height: 600px">
+                        <div class="row">
+                          <div class="col-xs-12" style="height: 532px">
+                            <div class="with-title qvplaceholder" id="QV-51"></div>
                           </div>
                         </div>
-                        <div class="col-xs-6" style="height: 100%; padding: 0px">
-                          <div class="row">
-                            <div class="col-xs-12" style="height: 75px;">
-                              <div class="with-title qvobject" id="QV-6"></div>
-                            </div>
-                          </div>
-                          <div class="row">
-                             <div class="col-xs-12 sub-title" style="height: 25px; top:-18px">
-                              <div class="with-title qvplaceholder" id="QV-6-1" style="height: 100%;"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row" style="height: 450px; padding: 0px 16px">
-                        <div class="col-xs-12">
-                          <div class="row">
-                            <div class="col-xs-6 topLeftKPI" style="height: 225px; max-height: 225px; padding: 0px">
-                              <div class="row" style="padding: 0px 16px">
-                                <div class="col-xs-10" style="padding: 0px;">
-                                  <p class="inner-title">
-                                    Entering &amp; Leaving
-                                  </p>
-                                  <p class="sub-title">
-                                    Satisfaction of International Visitors
-                                  </p>
-                                </div>
-                                <div class="col-xs-2" style="padding:0px; height: 40px; ">
-
-                                </div>
-                              </div>
-                              <div class="row">
-                                <div class="col-xs-12" style="height: 40px; padding: 0px">
-                                  <div class="qvobject" id="QV-7"></div>
-                                </div>
-                               <div class="col-xs-12 sub-title">
-                                  Split of Airports by satisfaction scores of International Visitors
-                                </div>
-                              </div>
-                              <div class="row" style="height: 120px; padding: 0px 16px">
-                                <div class="qvobject" id="QV-8"></div>
-                              </div>
-                            </div>
-                            <div class="col-xs-6 topRightKPI" style="height: 225px; max-height: 225px; padding: 0px">
-                              <div class="row" style="padding: 0px 16px">
-                                <div class="col-xs-10 inner-title" style="padding: 0px;">
-                                  <p class="inner-title">
-                                    Local Taxis
-                                  </p>
-                                  <p class="sub-title">
-                                    Satisfaction of International Visitors
-                                  </p>
+                        <div class="row" style="height: 50px">
+                          <div class="my-legend" style="padding: 0px 26px">
+                            <div class="legend-scale">
+                              <ul class="legend-labels">
+                                <div class="row">
+                                  <div class="col-xs-4">
+                                    <li>
+                                      <span style="background: #68399b"></span>Completed
+                                    </li>
                                   </div>
-                                <div class="col-xs-2">
-                                  
-                                </div>
-                              </div>
-                              <div class="row">
-                                <div class="col-xs-12" style="height: 40px; padding: 0px">
-                                  <div class="qvobject" id="QV-9"></div>
-                                </div>
-                               <div class="col-xs-12 sub-title">
-                                  Split of Destinations by satisfaction scores of International Visitors
-                                </div>
-                              </div>
-                              <div class="row" style="height: 120px; padding: 0px 16px">
-                                <div class="with-title qvobject" id="QV-10"></div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="col-xs-12">
-                              <div class="row" style="padding: 0px 16px">
-                                <div class="col-xs-6 bottomLeftKPI" style="height: 225px; padding: 0px">
-                                  <div class="row" style="margin-top: 5px;">
-                                    <div class="col-xs-10" style="padding: 0px;">
-                                      <p class="inner-title">
-                                        Visitor Hubs
-                                      </p>
-                                      <p class="sub-title">
-                                        Satisfaction of International Visitors
-                                      </p>
-                                    </div>
-                                    <div class="col-xs-2">
-                                  
-                                    </div>
+                                  <div class="col-xs-4">
+                                    <li>
+                                      <span style="background: #9fcd63"></span>
+                                      On
+                                      Track
+                                    </li>
                                   </div>
-                                  <div class="row">
-                                    <div class="col-xs-12" style="height: 40px; padding: 0px">
-                                      <div class="qvobject" id="QV-11"></div>
-                                    </div>
-                                   <div class="col-xs-12 sub-title">
-                                      Split of Priority Sites meeting basic experience standard
-                                    </div>
+                                  <div class="col-xs-4">
+                                    <li>
+                                      <span style="background: #da8177"></span>Delayed
+                                    </li>
                                   </div>
-                                  <div class="row" style="height: 120px; padding: 0px">
-                                    <div class="with-title qvobject" id="QV-12"></div>
+                                  <div class="col-xs-4">
+                                    <li>
+                                      <span style="background: #b8b8b8"></span>Committed
+                                    </li>
+                                  </div>
+                                  <div class="col-xs-4">
+                                    <li>
+                                      <span style="background: #bd761a"></span>Proposed
+                                    </li>
                                   </div>
                                 </div>
-                                <div class="col-xs-6 bottomRightKPI" style="height: 225px; padding: 0px">
-                                  <div class="row" style="padding: 0px 16px; margin-top: 5px;">
-                                    <div class="col-xs-10" style="padding: 0px;">
-                                      <p class="inner-title">
-                                        Saudi Hospitality
-                                      </p>
-                                      <p class="sub-title">
-                                        Hafawah of all Visitors
-                                      </p>
-                                    </div>
-                                    <div class="col-xs-2">
-                                  
-                                    </div>
-                                  </div>
-                                  <div class="row">
-                                    <div class="col-xs-12" style="height: 40px; padding: 0px">
-                                      <div class="qvobject" id="QV-13"></div>
-                                    </div>
-                                   <div class="col-xs-12 sub-title">
-                                      Split of Destinations by Hafawah Index
-                                    </div>
-                                  </div>
-                                  <div class="row" style="height: 120px; padding: 0px">
-                                    <div class="with-title qvobject" id="QV-14"></div>
-                                  </div>
-                                </div>
-                              </div>
+                              </ul>
                             </div>
                           </div>
                         </div>
                       </div>
-                      <div class="row" style="height: 50px; padding: 16px">
-                        <div class="my-legend" style="padding: 12px;">
-                          <div class="legend-scale">
-                            <ul class="legend-labels">
-                              <div class="row">
-                                <div class="col-xs-4">
-                                  <li><span style="background:#DA8177;"></span>Low (0 - 60%)</li>
-                                </div>
-                                <div class="col-xs-4">
-                                  <li><span style="background:#F8C143;"></span>Mid (60-80%)</li>
-
-                                </div>
-                                <div class="col-xs-4">
-                                  <li><span style="background:#9FCD63;"></span>High (&gt;80%)</li>
-
-                                </div>
-                              </div>
-                            </ul>
-                          </div>
-                          </div>
-                      </div>
-                    </qliksense-card>
+                    </div>
                   </div>
-                  <div class="col-xs-12 col-sm-4">
-                    <qliksense-card content-height="600px">
-                      <div class="card-title qvt-visualization-title">
-                        Recommendation (NPS)
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="paper-body" id="pdAdvocacy">
+            <div class="container-fluid">
+              <!--Filters-->
+              <div class="row" style="height: 45px; width: 100%">
+                <div class="col-xs-3" style="height: 100%">
+                  <div id="QV-27" class="qvplaceholder" style="width: 100%; height: 100%"></div>
+                </div>
+                <div class="col-xs-3" style="height: 100%">
+                  <div id="QV-28" class="qvplaceholder" style="width: 100%; height: 100%"></div>
+                </div>
+                <div class="col-xs-3" style="height: 100%">
+                  <div id="QV-29" class="qvplaceholder" style="width: 100%; height: 100%"></div>
+                </div>
+                <div class="col-xs-3" style="height: 100%">
+                  <div id="QV-30" class="qvplaceholder" style="width: 100%; height: 100%"></div>
+                </div>
+              </div>
+              <!--KPIs copy-->
+              <div class="row margin-bottom">
+                <div class="col-xs-12 col-md-3">
+                  <div class="item bg-dark" style="height: 100">
+                    <div class="row" style="height: 25px; padding: 0px 16px">
+                      <div class="col-xs-12 title">Recomendation (NPS)</div>
+                    </div>
+                    <div class="row" style="height: 75px; padding: 0px 16px">
+                      <div class="col-xs-6" style="height: 100%; padding: 0px">
+                        <div id="QV-31" class="qvobject" style="width: 100%; height: 100%"></div>
                       </div>
-                      <div class="row" style="height: 100px; padding: 0px 16px">
-                        <div class="col-xs-6" style="height: 100%; padding: 0px">
-                          <div class="row">
-                            <div class="col-xs-12" style="height: 75px;">
-                              <div class="with-title qvobject" id="QV-15"></div>
-                            </div>
-                          </div>
-                          <div class="row">
-                             <div class="col-xs-12 sub-title" style="height: 25px; top:-18px">
-                              <div class="with-title qvplaceholder" id="QV-15-1"></div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-xs-6" style="height: 100%; padding: 0px">
-                          <div class="row">
-                            <div class="col-xs-12" style="height: 75px;">
-                              <div class="with-title qvobject" id="QV-16"></div>
-                            </div>
-                          </div>
-                          <div class="row">
-                             <div class="col-xs-12 sub-title" style="height: 25px; top:-18px">
-                              <div class="with-title qvplaceholder" id="QV-16-1"></div>
-                            </div>
-                          </div>
-                        </div>
+                      <div class="col-xs-6" style="height: 100%; padding-top: 10px">
+                        <div id="QV32" class="qvobject" style="width: 100%; height: 100%"></div>
                       </div>
-                      <div class="row" style="height: 180px; padding: 0px 16px">
-                        <div class="col-xs-12 inner-title">By Visitor Profiles</div>
-                        <div class="col-xs-12" style="height: 140px; padding: 0px">
-                          <div class="row">
-                            <div class="col-xs-12" style="height: 100px">
-                              <div class="with-title qvplaceholder" id="QV-17"></div>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="col-xs-12" style="height: 40px">
-                              <div class="with-title qvplaceholder" id="QV-18"></div>
-                            </div>
-                          </div>
-                        </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-md-3">
+                  <div class="item bg-dark" style="height: 100px">
+                    <div class="row" style="height: 25px; padding: 0px 16px">
+                      <div class="col-xs-12 title">Re-visitation Intention</div>
+                    </div>
+                    <div class="row" style="height: 75px; padding: 0px 16px">
+                      <div class="col-xs-6" style="height: 100%; padding: 0px">
+                        <div id="QV33" class="qvobject" style="width: 100%; height: 100%"></div>
                       </div>
-                      <div class="row" style="height: 270px; padding: 0px 16px">
+                      <div class="col-xs-6" style="height: 100%; padding-top: 10px">
+                        <div id="QV34" class="qvobject" style="width: 100%; height: 100%"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-md-3">
+                  <div class="item bg-dark" style="height: 100px">
+                    <div class="row" style="height: 25px; padding: 0px 16px">
+                      <div class="col-xs-12 title">Offering Satisfaction</div>
+                    </div>
+                    <div class="row" style="height: 75px; padding: 0px 16px">
+                      <div class="col-xs-6" style="height: 100%; padding: 0px">
+                        <div id="QV35" class="qvobject" style="height: 100%"></div>
+                      </div>
+                      <div class="col-xs-6" style="height: 100%; padding-top: 10px">
+                        <div id="QV36" class="qvobject" style="height: 100%"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-md-3">
+                  <div class="item bg-dark" style="height: 100px">
+                    <div class="row" style="height: 25px; padding: 0px 16px">
+                      <div class="col-xs-12 title">Delight</div>
+                    </div>
+                    <div class="row" style="height: 75px; padding: 0px 16px">
+                      <div class="col-xs-6" style="height: 100%; padding: 0px">
+                        <div id="QV37" class="qvplaceholder" style="height: 100%"></div>
+                      </div>
+                      <div class="col-xs-6" style="height: 100%; padding: 0px">
+                        <div id="QV38" class="qvobject" style="height: 100%"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!---->
+              <!--Graphs-->
+              <div class="row" style="padding: 0px 16px">
+                <div class="col-xs-12" style="padding: 0px">
+                  <div class="item bg-dark" style="height: 520px">
+                    <div class="row" style="height: 40px; padding: 0px 16px">
+                      <div class="col-xs-12 title">
+                        Understanding Customer Satisfaction
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-8">
+                      <div class="row" style="height: 430px">
                         <div class="col-xs-12" style="height: 100%; padding: 0px">
-                          <div class="d-flex justify-content-end" style="height: 35px; text-align: center">
+                          <div class="d-flex justify-content-end" style="height: 35px; text-align: center; display: flex;
+                          align-items: center;
+                          justify-content: flex-end;">
                             <div class="btn-group toggle" role="group" aria-label="Basic example">
-                              <button type="button" id="selectSourceMarket-1" class="btn btn-secondary btn-round btn-left">
-                                By Source Market
+                              <button type="button" id="selectAbsolute" class="btn btn-secondary btn-round">
+                                Absolute
                               </button>
-                              <button type="button" id="selectDestination-1" class="btn btn-secondary btn-round btn-right">
-                                By Destination
+                              <button type="button" id="selectRelative" class="btn btn-secondary btn-round">
+                                Relative
                               </button>
                             </div>
                           </div>
-                          <div id="sourceMarket-1" style="height: 90%">
-                            <div id="QV-19" class="qvplaceholder" style="height: 100%"></div>
+                          <div id="absolute" style="height: 395px">
+                            <div id="QV-39" class="qvobject" style="height: 100%"></div>
                           </div>
-                          <div id="destination-1" style="height: 90%">
-                            <div id="QV-20" class="qvplaceholder" style="height: 100%"></div>
+                          <div id="relative" style="height: 395px">
+                            <div id="QV-40" class="qvplaceholder" style="height: 100%"></div>
                           </div>
                         </div>
                       </div>
                       <div class="row" style="height: 50px; padding: 0px 16px">
-                        <div class="my-legend" style="padding:0px 12px;">
+                        <div class="my-legend" style="padding: 12px">
                           <div class="legend-scale">
                             <ul class="legend-labels">
-                              <div class="row">
-                                <div class="col-xs-6">
-                                  <li><span style="background:#DA8177;"></span>Low (-100 - 0%)</li>
-                                </div>
-                                <div class="col-xs-6">
-                                  <li><span style="background:#F8C143;"></span>Good (0 - 30%)</li>
-                                </div>
-                                <div class="col-xs-6">
-                                  <li><span style="background:#9FCD63;"></span>Great (30 - 70%)</li>
-                                </div>
-                                <div class="col-xs-6">
-                                  <li><span style="background:#5CB14D;"></span>Excelent (70 - 100%)</li>
-                                </div>
-                              </div>
+                              <li>
+                                <span style="background: #da8177"></span>
+                                <span class="LegendTitle">Low (0 - 60%)</span>
+                              </li>
+                              <li>
+                                <span style="background: #f8c143"></span>
+                                <span class="LegendTitle">Mid (60-80%)</span>
+                              </li>
+                              <li>
+                                <span style="background: #9fcd63"></span>
+                                <span class="LegendTitle">High (&gt;80%)</span>
+                              </li>
                             </ul>
                           </div>
-                          </div>
-                      </div>
-                    </qliksense-card>
-                  </div>
-                  <div class="col-xs-12 col-sm-4">
-                    <qliksense-card content-height="600px">
-                      <div class="card-title qvt-visualization-title">
-                        Re-Visitation Intention
-                      </div>
-                      <div class="row" style="height: 100px; padding: 0px 16px">
-                        <div class="col-xs-6" style="height: 100%; padding: 0px">
-                          <div class="row">
-                            <div class="col-xs-12" style="height: 75px;">
-                              <div class="with-title qvobject" id="QV-21"></div>
-                            </div>
-                          </div>
-                          <div class="row">
-                             <div class="col-xs-12 sub-title" style="height: 25px; top:-18px">
-                              <div class="with-title qvobject" id="QV-21-1"></div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-xs-6" style="height: 100%; padding: 0px">
-                          <div class="row">
-                            <div class="col-xs-12" style="height: 75px;">
-                              <div class="with-title qvobject" id="QV-22"></div>
-                            </div>
-                          </div>
-                          <div class="row">
-                             <div class="col-xs-12 sub-title" style="height: 25px; top:-18px">
-                              <div class="with-title qvplaceholder" id="QV-022"></div>
-                            </div>
-                          </div>
                         </div>
                       </div>
-                      <div class="row" style="height: 180px; padding: 0px 16px">
-                        <div class="col-xs-12 inner-title">By Visitor Profiles</div>
-                        <div class="col-xs-12" style="height: 140px; padding: 0px">
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                      <div class="row" style="height: 60px">
+                        <div class="col-xs-4" style="height: 60px">
+                          <div class="qvobject" id="QV-41"></div>
+                        </div>
+                        <div class="col-xs-4" style="height: 60px">
                           <div class="row">
-                            <div class="col-xs-12" style="height: 100px">
-                              <div class="qvplaceholder" id="QV-23"></div>
-                            </div>
-                          </div>
-                          <div class="row">
+                            <div class="col-xs-12 title">CSAT</div>
                             <div class="col-xs-12" style="height: 40px">
-                              <div class="qvplaceholder" id="QV-24"></div>
+                              <div class="qvobject" id="QV-42"></div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="row" style="height: 270px; padding: 0px 16px">
-                        <div class="col-xs-12" style="height: 100%; padding: 0px">
-                          <div class="d-flex justify-content-end" style="height: 35px; text-align: center">
-                            <div class="btn-group toggle" role="group" aria-label="Basic example">
-                              <button type="button" id="selectSourceMarket-2" class="btn btn-secondary btn-round">
-                                By Source Market
-                              </button>
-                              <button type="button" id="selectDestination-2" class="btn btn-secondary btn-round">
-                                By Destination
-                              </button>
-                            </div>
-                          </div>
-                          <div id="sourceMarket-2" style="height: 90%">
-                            <div id="QV-25" class="qvplaceholder" style="height: 100%"></div>
-                          </div>
-                          <div id="destination-2" style="height: 90%">
-                            <div id="QV-26" class="qvplaceholder" style="height: 100%"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row" style="height: 50px; padding:  16px">
-                        <div class="my-legend" style="padding: 12px;">
-                          <div class="legend-scale">
-                            <ul class="legend-labels">
-                              <div class="row">
-                                <div class="col-xs-4">
-                                  <li><span style="background:#DA8177;"></span>Low (0 - 60%)</li>
-                                </div>
-                                <div class="col-xs-4">
-                                  <li><span style="background:#F8C143;"></span>Mid (60-80%)</li>
-                                </div>
-                                <div class="col-xs-4">
-                                  <li><span style="background:#9FCD63;"></span>High (&gt;80%)</li>
-                                </div>
-                              </div>
-                            </ul>
-                          </div>
-                          </div>
-                      </div>
-                    </qliksense-card>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="paper-body">
-              <div class="container-fluid">
-                <!--Filters-->
-                <div class="row" style="height: 45px; width: 100%">
-                  <div class="col-xs-4" style="height: 100%">
-                    <div id="QV-46" class="qvplaceholder" style="width: 100%; height: 100%"></div>
-                  </div>
-                  <div class="col-xs-4" style="height: 100%">
-                    <div id="QV-47" class="qvplaceholder" style="width: 100%; height: 100%"></div>
-                  </div>
-                  <div class="col-xs-4" style="height: 100%">
-                    <div id="QV-48" class="qvplaceholder" style="width: 100%; height: 100%"></div>
-                  </div>
-
-                </div>
-                <div class="row">
-                  <div class="col-xs-12 col-sm-4 ">
-                    <div class="item bg-dark" style="height: 640px;">
-                      <div class="row" style="padding: 0px 16px">
-                        <div class="col-xs-12 title">Overall Status</div>
-                        <div class="col-xs-12" style="height: 275px;">
-                          <div class="with-title qvplaceholder" id="QV-49"></div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-xs-12 title" style="padding: 0px 26px">Working Group Status</div>
-                        <div class="col-xs-12" style="height: 275px;">
-                          <div class="with-title qvplaceholder" id="QV-50"></div>
-                        </div>
-                      </div>
-                      <div class="row" style="height:50px">
-                        <div class="my-legend" style="padding: 0px 26px;">
-                          <div class="legend-scale">
-                            <ul class="legend-labels">
-                              <li><span style="background:#68399B;"></span>Completed</li>
-                              <li><span style="background:#9FCD63;"></span>On Track</li>
-                              <li><span style="background:#DA8177;"></span>Delayed</li>
-                              <li><span style="background:#B8B8B8;"></span>Committed</li>
-                            </ul>
-                          </div>
-                          </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xs-12 col-sm-8">
-                    <div class="item bg-dark" style="height: 640px;">
-                      <div class="row" style="padding: 0px 16px">
-                        <div class="col-xs-12 title">Initiative Progress</div>
-                        <div class="col-xs-12" style="height: 620px;">
+                        <div class="col-xs-4" style="height: 60px">
                           <div class="row">
-                            <div class="col-xs-12" style="height: 620px;">
-                              <div class="with-title qvobject" id="QV-51"></div>
+                            <div class="col-xs-12 title">Delight</div>
+                            <div class="col-xs-12" style="height: 40px">
+                              <div class="qvobject" id="QV-43"></div>
                             </div>
                           </div>
+                        </div>
+                      </div>
+                      <div class="row" style="height: 200px">
+                        <div class="col-xs-12 title" style="
+                        padding: 10px;
+                        color: RGB(185, 186, 185);
+                      ">
+                          Experience Pain Points
+                        </div>
+                        <div class="col-xs-12 item" style="padding: 12px 0px;">
+                          <div class="qvobject" id="QV-44" style="height: 180px"></div>
+                        </div>
+                      </div>
+                      <div class="row" style="height: 200px">
+                        <div class="col-xs-12 title" style="
+                        padding: 10px;
+                        color: RGB(185, 186, 185);
+                      ">
+                          Moments of Delight
+                        </div>
+                        <div class="col-xs-12 item" style="padding: 12px 0px;">
+                          <div class="qvplaceholder" id="QV-45" style="height: 160px"></div>
                         </div>
                       </div>
                     </div>
@@ -602,174 +935,183 @@
                 </div>
               </div>
             </div>
-
-            <div class="paper-body">
-              <div class="container-fluid">
-                <!--Filters-->
-                <div class="row" style="height: 45px; width: 100%">
-                  <div class="col-xs-3" style="height: 100%">
-                    <div id="QV-27" class="qvplaceholder" style="width: 100%; height: 100%"></div>
-                  </div>
-                  <div class="col-xs-3" style="height: 100%">
-                    <div id="QV-28" class="qvplaceholder" style="width: 100%; height: 100%"></div>
-                  </div>
-                  <div class="col-xs-3" style="height: 100%">
-                    <div id="QV-29" class="qvplaceholder" style="width: 100%; height: 100%"></div>
-                  </div>
-                  <div class="col-xs-3" style="height: 100%">
-                    <div id="QV-30" class="qvplaceholder" style="width: 100%; height: 100%"></div>
-                  </div>
+          </div>
+          <div class="paper-body" id="pdEnteringLeaving">
+            <div class="container-fluid">
+              <!--Filters-->
+              <div class="row" style="height: 45px; width: 100%">
+                <div class="col-xs-3" style="height: 100%">
+                  <div id="QV-27" class="qvplaceholder" style="width: 100%; height: 100%"></div>
                 </div>
-                <!--KPIs copy-->
-                <div class="row margin-bottom">
-                  <div class="col-xs-12 col-md-3">
-                    <div class="item bg-dark" style="height: 120px">
-                      <div class="row" style="height: 40px; padding: 0px 16px">
-                        <div class="col-xs-12 title">Recomendation (NPS)</div>
-                      </div>
-                      <div class="row" style="height: 80px; padding: 0px 16px">
-                        <div class="col-xs-6" style="height: 100%; padding: 0px">
-                          <div id="QV-31" class="qvplaceholder" style="width: 100%; height: 100%"></div>
-                        </div>
-                        <div class="col-xs-6" style="height: 100%; padding-top: 10px;">
-                          <div id="QV32" class="qvobject" style="width: 100%; height: 100%"></div>
-                        </div>
-                      </div>
+                <div class="col-xs-3" style="height: 100%">
+                  <div id="QV-28" class="qvplaceholder" style="width: 100%; height: 100%"></div>
+                </div>
+                <div class="col-xs-3" style="height: 100%">
+                  <div id="QV-29" class="qvplaceholder" style="width: 100%; height: 100%"></div>
+                </div>
+                <div class="col-xs-3" style="height: 100%">
+                  <div id="QV-30" class="qvplaceholder" style="width: 100%; height: 100%"></div>
+                </div>
+              </div>
+              <!--KPIs copy-->
+              <div class="row margin-bottom">
+                <div class="col-xs-12 col-md-4">
+                  <div class="item bg-dark" style="height: 120px">
+                    <div class="row" style="height: 40px; padding: 0px 16px">
+                      <div class="col-xs-12 title">Entering Satisfaction</div>
                     </div>
-                  </div>
-                  <div class="col-xs-12 col-md-3">
-                    <div class="item bg-dark" style="height: 120px">
-                      <div class="row" style="height: 40px; padding: 0px 16px">
-                        <div class="col-xs-12 title">
-                          Re-visitation Intention
-                        </div>
+                    <div class="row" style="height: 80px; padding: 0px 16px">
+                      <div class="col-xs-6" style="height: 100%; padding: 0px">
+                        <div id="QV-31" class="qvobject" style="width: 100%; height: 100%"></div>
                       </div>
-                      <div class="row" style="height: 80px; padding: 0px 16px">
-                        <div class="col-xs-6" style="height: 100%; padding: 0px">
-                          <div id="QV33" class="qvplaceholder" style="width: 100%; height: 100%"></div>
-                        </div>
-                        <div class="col-xs-6" style="height: 100%; padding-top: 10px;">
-                          <div id="QV34" class="qvplaceholder" style="width: 100%; height: 100%"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xs-12 col-md-3">
-                    <div class="item bg-dark" style="height: 120px">
-                      <div class="row" style="height: 40px; padding: 0px 16px">
-                        <div class="col-xs-12 title">Offering Satisfaction</div>
-                      </div>
-                      <div class="row" style="height: 80px; padding: 0px 16px">
-                        <div class="col-xs-6" style="height: 100%; padding: 0px">
-                          <div id="QV35" class="qvplaceholder" style="height: 100%"></div>
-                        </div>
-                        <div class="col-xs-6" style="height: 100%; padding-top: 10px;">
-                          <div id="QV36" class="qvplaceholder" style="height: 100%"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xs-12 col-md-3">
-                    <div class="item bg-dark" style="height: 120px">
-                      <div class="row" style="height: 40px; padding: 0px 16px">
-                        <div class="col-xs-12 title">Delight</div>
-                      </div>
-                      <div class="row" style="height: 80px; padding: 0px 16px">
-                        <div class="col-xs-6" style="height: 100%; padding: 0px">
-                          <div id="QV37" class="qvobject" style="height: 100%"></div>
-                        </div>
-                        <div class="col-xs-6" style="height: 100%; padding: 0px">
-                          <div id="QV38" class="qvplaceholder" style="height: 100%"></div>
-                        </div>
+                      <div class="col-xs-6" style="height: 100%; padding-top: 10px">
+                        <div id="QV32" class="qvobject" style="width: 100%; height: 100%"></div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <!---->
-                <!--Graphs-->
-                <div class="row" style="padding: 0px 16px">
-                  <div class="col-xs-12" style="padding: 0px">
-                    <div class="item bg-dark" style="height: 520px">
-                      <div class="row" style=" height:40px; padding: 0px 16px;">
+                <div class="col-xs-12 col-md-4">
+                  <div class="item bg-dark" style="height: 120px">
+                    <div class="row" style="height: 40px; padding: 0px 16px">
+                      <div class="col-xs-12 title">Leaving Satisfaction</div>
+                    </div>
+                    <div class="row" style="height: 80px; padding: 0px 16px">
+                      <div class="col-xs-6" style="height: 100%; padding: 0px">
+                        <div id="QV33" class="qvobject" style="width: 100%; height: 100%"></div>
+                      </div>
+                      <div class="col-xs-6" style="height: 100%; padding-top: 10px">
+                        <div id="QV34" class="qvobject" style="width: 100%; height: 100%"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                  <div class="item bg-dark" style="height: 120px">
+                    <div class="row" style="height: 40px; padding: 0px 16px">
+                      <div class="col-xs-12 title">Number of Arrivals</div>
+                    </div>
+                    <div class="row" style="height: 80px; padding: 0px 16px">
+                      <div class="col-xs-6" style="height: 100%; padding: 0px">
+                        <div id="QV35" class="qvobject" style="height: 100%"></div>
+                      </div>
+                      <div class="col-xs-6" style="height: 100%; padding-top: 10px">
+                        <div id="QV36" class="qvobject" style="height: 100%"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!---->
+              <!--Graphs-->
+              <div class="row" style="padding: 0px 16px">
+                <div class="col-xs-12" style="padding: 0px">
+                  <div class="item bg-dark" style="height: 520px">
+                    <div class="col-xs-12 col-sm-8">
+                      <div class="row" style="height: 40px; padding: 0px 16px">
                         <div class="col-xs-12 title">
                           Understanding Customer Satisfaction
                         </div>
                       </div>
-                      <div class="col-xs-12 col-sm-8">
-                        <div class="row" style="height: 430px">
-                          <div class="col-xs-12" style="height: 100%; padding: 0px">
-                            <div class="d-flex justify-content-end" style="height: 35px; text-align: center">
-                              <div class="btn-group toggle" role="group" aria-label="Basic example">
-                                <button type="button" id="selectAbsolute" class="btn btn-secondary btn-round">
-                                  Absolute
-                                </button>
-                                <button type="button" id="selectRelative" class="btn btn-secondary btn-round">
-                                  Relative
-                                </button>
-                              </div>
-                            </div>
-                            <div id="absolute" style="height: 395px">
-                              <div id="QV-39" class="qvobject" style="height: 100%"></div>
-                            </div>
-                            <div id="relative" style="height: 395px">
-                              <div id="QV-40" class="qvobject" style="height: 100%"></div>
+                      <div class="row" style="height: 480px">
+                        <div class="col-xs-12" style="height: 100%; padding: 0px">
+                          <div class="d-flex justify-content-end" style="height: 35px; text-align: center">
+                            <div class="btn-group toggle" role="group" aria-label="Basic example">
+                              <button type="button" id="selectOverall" class="btn btn-secondary btn-round">
+                                Overall
+                              </button>
+                              <button type="button" id="selectSegment" class="btn btn-secondary btn-round">
+                                Segment
+                              </button>
                             </div>
                           </div>
-                        </div>
-                        <div class="row" style="height: 50px; padding: 0px 16px">
-                          <div class="my-legend" style="padding: 12px;">
-                            <div class="legend-scale">
-                              <ul class="legend-labels">
-                                <li><span style="background:#DA8177;"></span>Low (0 - 60%)</li>
-                                <li><span style="background:#F8C143;"></span>Mid (60-80%)</li>
-                                <li><span style="background:#9FCD63;"></span>High (&gt;80%)</li>
-                              </ul>
+                          <div id="overall">
+                            <div id="QV-39" class="qvobject" style="height: 395px"></div>
+                            <div class="row" style="height: 50px; padding: 0px 16px">
+                              <div class="my-legend" style="padding: 12px">
+                                <div class="legend-scale">
+                                  <ul class="legend-labels">
+                                    <li>
+                                      <span style="background: #da8177"></span>
+                                      <span class="LegendTitle">Low (0 - 60%)</span>
+                                    </li>
+                                    <li>
+                                      <span style="background: #f8c143"></span>
+                                      <span class="LegendTitle">Mid (60-80%)</span>
+                                    </li>
+                                    <li>
+                                      <span style="background: #9fcd63"></span>
+                                      <span class="LegendTitle">High (&gt;80%)</span>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
                             </div>
+                          </div>
+                          <div id="segment">
+                            <div id="QV-40" class="qvplaceholder" style="height: 395px"></div>
+                            <div class="row" style="height: 50px; padding: 0px 16px">
+                              <div class="my-legend" style="padding: 12px">
+                                <div class="legend-scale">
+                                  <ul class="legend-labels">
+                                    <li>
+                                      <span style="background: #da8177"></span>
+                                      <span class="LegendTitle">Low (0 - 60%)</span>
+                                    </li>
+                                    <li>
+                                      <span style="background: #f8c143"></span>
+                                      <span class="LegendTitle">Mid (60-80%)</span>
+                                    </li>
+                                    <li>
+                                      <span style="background: #9fcd63"></span>
+                                      <span class="LegendTitle">High (&gt;80%)</span>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
                             </div>
+                          </div>
                         </div>
                       </div>
-                      <div class="col-xs-12 col-sm-4">
-                        <div class="row" style="height: 60px">
-                          <div class="col-xs-4" style="height: 60px">
-                            
-                            <div class="qvplaceholder" id="QV-41"></div>
-                          </div>
-                          <div class="col-xs-4" style="height: 60px">
-                            <div class="row">
-                              <div class="col-xs-12 title">
-                                CSAT
-                              </div>
-                              <div class="col-xs-12" style="height: 40px;">
-                                <div class="qvplaceholder" id="QV-42"></div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-xs-4" style="height: 60px">
-                            <div class="row">
-                              <div class="col-xs-12 title">
-                                Delight
-                              </div>
-                              <div class="col-xs-12" style="height: 40px;">
-                                <div class="qvplaceholder" id="QV-43"></div>
-                              </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                      <div class="row" style="height: 40px; padding: 0px 16px">
+                        <div class="col-xs-12 title">Placeholder Titile</div>
+                      </div>
+                      <div class="row" style="height: 60px">
+                        <div class="col-xs-4" style="height: 60px">
+                          <div class="qvobject" id="QV-41"></div>
+                        </div>
+                        <div class="col-xs-4" style="height: 60px">
+                          <div class="row">
+                            <div class="col-xs-12 title">CSAT</div>
+                            <div class="col-xs-12" style="height: 40px">
+                              <div class="qvobject" id="QV-42"></div>
                             </div>
                           </div>
                         </div>
-                        <div class="row" style="height: 220px">
-                          <div class="col-xs-12 title" style="padding: 10px">
-                            Experience Pain Points
-                          </div>
-                          <div class="col-xs-12 item">
-                            <div class="qvobject" id="QV-44" style="height: 200px"></div>
+                        <div class="col-xs-4" style="height: 60px">
+                          <div class="row">
+                            <div class="col-xs-12 title">Delight</div>
+                            <div class="col-xs-12" style="height: 40px">
+                              <div class="qvobject" id="QV-43"></div>
+                            </div>
                           </div>
                         </div>
-                        <div class="row" style="height: 220px">
-                          <div class="col-xs-12 title" style="padding: 10px">
-                            Moments of Delight
-                          </div>
-                          <div class="col-xs-12 item">
-                            <div class="qvplaceholder" id="QV-45" style="height: 200px"></div>
-                          </div>
+                      </div>
+                      <div class="row" style="height: 220px">
+                        <div class="col-xs-12 title" style="padding: 10px">
+                          Experience Pain Points
+                        </div>
+                        <div class="col-xs-12 item" style="padding: 12px 0px;">
+                          <div class="qvobject" id="QV-44" style="height: 200px"></div>
+                        </div>
+                      </div>
+                      <div class="row" style="height: 220px">
+                        <div class="col-xs-12 title" style="padding: 10px">
+                          Moments of Delight
+                        </div>
+                        <div class="col-xs-12 item" style="padding: 12px 0px;">
+                          <div class="qvplaceholder" id="QV-45" style="height: 200px"></div>
                         </div>
                       </div>
                     </div>
@@ -777,8 +1119,8 @@
                 </div>
               </div>
             </div>
-          </iron-pages>
-        </paper-drawer-panel>
+          </div>
+        </iron-pages>
       </paper-header-panel>
     </paper-drawer-panel>
 

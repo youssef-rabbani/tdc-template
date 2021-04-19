@@ -13,6 +13,13 @@
    ::-webkit-scrollbar {
     width: 5px;
   }
+  .scrollbar-thumb{
+      background-color: #555555;
+  }
+  .scrollbar-thumb.active {
+background-color: #555555;  
+}
+
   
   /* Handle */
   ::-webkit-scrollbar-thumb {
@@ -42,6 +49,7 @@
   }
   .Pre-Chart-Title{
       text-align:end;
+      font-size: 13px !important;
       padding-right:5px;
   }
   .btn-round {
@@ -146,7 +154,7 @@
     }
     
     #QV-44 td.Pre-Chart-TitleDiv {
-        width: 60% !important;
+        width: 65% !important;
     }
     
     #QV-45 td.Pre-Chart-TitleDiv {

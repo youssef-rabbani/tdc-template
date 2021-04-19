@@ -93,7 +93,7 @@
   .LegendTitle{
       vertical-align:bottom;
       width: 62px !important;
-      font-size:8px;
+      font-size:9px;
       text-align: initial;
       padding-left: 1px;
       padding-top: 10px;
@@ -103,8 +103,14 @@
       width: 100%;
   }
   
-  
+  .x-scope paper-toolbar-0{
+        background-color: #131c38 !important;
+  }
   .paper-toolbar-0 #middleBar.paper-toolbar {
+    background-image: url(logo1.png),url(logo2.png);
+    background-size: auto 200%,auto 100%;
+    background-repeat: no-repeat;
+	background-position: 10px -30px, right bottom;
       position: absolute;
       top: 0;
       right: 0;
@@ -184,6 +190,11 @@ body{
     line-height: unset;
 	background-color: RGB(39,46,74);
 }
+#pivotTable table td :nth-child(n+3){  /* this will go to the 2nd column of a table directly */
+
+    width:25px !important;
+    
+    }
 /*Bootstrap layout*/
 .item {
     border-radius: 10px;
@@ -238,7 +249,7 @@ body{
     width: 92px;
     margin-bottom: 6px;
     text-align: center;
-    font-size: 10px;
+    font-size: 12px;
     list-style: none;
     }
   .my-legend ul.legend-labels li span {

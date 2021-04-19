@@ -159,16 +159,6 @@
         height: 20px;
     }
     
-    #QV-42 {
-        margin-left: -42px;
-        margin-top: 5px;
-    }
-    
-    #QV-43 {
-        margin-left: -42px;
-        margin-top: 5px;
-    }
-    
     .qv-pt .cell.header .value .left
     {
     text-align:red !important;

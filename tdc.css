@@ -98,6 +98,12 @@ background-color: #555555;
       color: RGB(181,181,181);
       margin-top: -5px;
   }
+  .sub-title-3{
+    text-align: center;
+    height:20px;
+    font-size: 11px;
+    color:white;
+}
   .LegendTitle{
       vertical-align:bottom;
       width: 62px !important;
@@ -212,6 +218,7 @@ body{
 .title{ 
     padding: 10px;
     font-size: 14px;
+    font-weight: bold;
     height:20px;
 }
 .inner-title{

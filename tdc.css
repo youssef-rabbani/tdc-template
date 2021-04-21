@@ -106,7 +106,6 @@ background-color: #555555;
 }
   .LegendTitle{
       vertical-align:bottom;
-      width: 62px !important;
       font-size:9px;
       text-align: initial;
       padding-left: 1px;
@@ -251,7 +250,7 @@ body{
   .my-legend .legend-scale ul li {
     display: block;
     float: left;
-    width: 92px;
+    /*width: 92px;*/
     margin-bottom: 6px;
     text-align: center;
     font-size: 12px;

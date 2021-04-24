@@ -263,6 +263,25 @@ body{
     width: 30px;
     margin: 0px;
     }
+    .my-legend ul.legend-labels-circle li span {
+        display: block;
+        float: left;
+        height: 20px;
+        width: 20px;
+        margin: 0px;
+        border-radius: 50%;
+
+        }
+        .my-legend ul.legend-labels-triangle li span {
+            display: block;
+            float: left;
+            border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-bottom: 80px solid lightblue;
+            margin: 0px;
+            border-radius: 50%;
+    
+            }
   .my-legend .legend-source {
     font-size: 70%;
     color: #999;
@@ -305,6 +324,9 @@ button:focus { outline:0 !important; }
     font-size: 30px;
 }
 /* qlik visulaization overrides*/
+span.chart-data-title-label.ng-binding {
+    color: white !important;
+}
 .qv-object-text-image .qv-media-tool-html {
     font-size: 10px !important;
 	text-align: center !important;

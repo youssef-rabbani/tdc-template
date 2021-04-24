@@ -270,18 +270,28 @@ body{
         width: 20px;
         margin: 0px;
         border-radius: 50%;
+    }
+    .arrow-up {
+        float:left;
+        width: 0; 
+        height: 0; 
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 15px solid #9fcd63;
+        padding-top:5px;
+      }
+      
+      .arrow-down {
 
-        }
-        .my-legend ul.legend-labels-triangle li span {
-            display: block;
-            float: left;
-            border-left: 40px solid transparent;
-    border-right: 40px solid transparent;
-    border-bottom: 80px solid lightblue;
-            margin: 0px;
-            border-radius: 50%;
-    
-            }
+        float:left;
+        width: 0; 
+        height: 0; 
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        
+        border-top: 15px solid #f8c143;
+      }
+
   .my-legend .legend-source {
     font-size: 70%;
     color: #999;

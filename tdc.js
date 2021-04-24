@@ -58,8 +58,13 @@ require(["js/qlik"], function (qlik) {
 
 	var app15 = qlik.openApp('Visitor_Hubs_Updated.qvf', config);
 
+	var app16 = qlik.openApp('Entering and Leaving.qvf', config);
+
 
 	//get objects -- inserted here --
+	app16.getObject('QV-69','cc4c20da-4b06-4f2d-b7ee-52eb4c0126bb');
+	app16.getObject('QV-66','WVjtpH');
+	app16.getObject('QV-65','89496a62-eb90-4e26-9fe2-2f46126d3382');
 	app15.getObject('QV-100','npNXcq');
 	app15.getObject('QV-98','RdpGTP');
 	app14.getObject('QV32','kPpmtw');

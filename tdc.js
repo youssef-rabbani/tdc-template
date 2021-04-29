@@ -60,16 +60,19 @@ require(["js/qlik"], function (qlik) {
 
 	var app16 = qlik.openApp('Entering and Leaving.qvf', config);
 
+	var app17 = qlik.openApp('Initiatives (1).qvf', config);
+
 
 	//get objects -- inserted here --
-	app15.getObject('QV-97','GvXHmx');
-	app15.getObject('QV-95','Bvdxc');
+	app17.getObject('QV-50','FJxFc');
+	
+	
 	app16.getObject('QV-69','cc4c20da-4b06-4f2d-b7ee-52eb4c0126bb');
 	app16.getObject('QV-66','WVjtpH');
 	app16.getObject('QV-65','89496a62-eb90-4e26-9fe2-2f46126d3382');
 	app15.getObject('QV-100','npNXcq');
 	app15.getObject('QV-98','RdpGTP');
-	app14.getObject('QV32','kPpmtw');
+	
 	
 	app14.getObject('QV-14','edJGeg');
 	
@@ -86,7 +89,7 @@ require(["js/qlik"], function (qlik) {
 	app9.getObject('QV-46','434027dc-73bc-48d6-8073-ccd74ca0d702');
 	app8.getObject('QV-51','Rqns');
 	
-	app5.getObject('QV34','6c204984-92aa-4c68-86ec-ee526ce25325');
+	
 	app5.getObject('QV35','1693f7d4-86bd-496c-9ff0-fdaf911729e8');
 	app5.getObject('QV33','1693f7d4-86bd-496c-9ff0-fdaf911729e8');
 	app5.getObject('QV-31','1693f7d4-86bd-496c-9ff0-fdaf911729e8');

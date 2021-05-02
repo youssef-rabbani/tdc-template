@@ -199,6 +199,32 @@ body{
     line-height: unset;
 	background-color: RGB(39,46,74);
 }
+.x-axis {
+    height: 7px;
+    border-bottom: 1px solid white;
+  }
+.x-axis:before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 15px;
+    width: 1px;
+    background-color: white;
+}
+.mobility .x-axis:after{
+    content: "";
+    display: block;
+    position: absolute;
+    height: 15px;
+    width: 1px;
+    background-color: white;
+}
+  .h-title{
+    padding-left: 115px;
+  }
+  .h-title p {
+    margin: 0px !important;
+  }
 #pivotTable table td :nth-child(n+3){  /* this will go to the 2nd column of a table directly */
 
     width:25px !important;

@@ -73,10 +73,15 @@ require(["js/qlik"], function (qlik) {
 
 	var app17 = qlik.openApp('Initiatives (1).qvf', config);
 
+	var app18 = qlik.openApp('Mobility.qvf', config);
+
 
 	//get objects -- inserted here --
+	app18.getObject('QV-87','GdRYkB');
+	app18.getObject('QV-86','FLSbVJ');
+	app18.getObject('QV-85','mtcmr');
 	app14.getObject('QV-40','jLYwjN');
-	app14.getObject('QV-85','jLYwjN');
+	
 	app14.getObject('QV-112','jLYwjN');
 	app17.getObject('QV-50','FJxFc');
 	

@@ -19,6 +19,30 @@
   .scrollbar-thumb.active {
 background-color: #555555;  
 }
+.scrollbar-track.vertical .scrollbar-thumb {
+    width: 5px;
+}
+
+.scrollbar-track.horizontal .scrollbar-thumb{
+    height:5px;
+}
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
 
   
   /* Handle */
@@ -211,19 +235,23 @@ body{
     width: 1px;
     background-color: white;
 }
-.mobility .x-axis:after{
+.x-axis:after {
     content: "";
     display: block;
-    position: absolute;
+    position: relative;
+    float: right;
     height: 15px;
     width: 1px;
     background-color: white;
-}
+  }
   .h-title{
     padding-left: 115px;
   }
   .h-title p {
     margin: 0px !important;
+  }
+  .rightAxisLabel {
+    float: right;
   }
 #pivotTable table td :nth-child(n+3){  /* this will go to the 2nd column of a table directly */
 

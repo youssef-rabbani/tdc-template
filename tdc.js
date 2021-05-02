@@ -21,6 +21,17 @@ require(["js/qlik"], function (qlik) {
 	qlik.setOnError( function (error) {
 		console.log(error);
 	});
+		qlik.theme.apply('Tourism-theme').then(function(result) {
+
+          if(result)
+
+              console.log('theme applied!');
+
+          else
+
+              console.warn('could not apply theme!');
+
+     });
 
 	
 
@@ -64,6 +75,7 @@ require(["js/qlik"], function (qlik) {
 
 
 	//get objects -- inserted here --
+	app14.getObject('QV-40','jLYwjN');
 	app14.getObject('QV-85','jLYwjN');
 	app14.getObject('QV-112','jLYwjN');
 	app17.getObject('QV-50','FJxFc');

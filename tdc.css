@@ -278,11 +278,11 @@ body{
     width:122px;
     transform: rotate(-90deg);
   }
-#pivotTable table td :nth-child(n+3){  /* this will go to the 2nd column of a table directly */
+/*#pivotTable table td :nth-child(n+3){  /* this will go to the 2nd column of a table directly 
 
     width:25px !important;
     
-    }
+    }*/
 /*Bootstrap layout*/
 .item {
     border-radius: 10px;

@@ -81,11 +81,27 @@ require(["js/qlik"], function (qlik) {
 
 	var app21 = qlik.openApp('Initiatives (1).qvf', config);
 
+	var app22 = qlik.openApp('Initiatives (1).qvf', config);
+
+	var app23 = qlik.openApp('Initiatives (1).qvf', config);
+
+	var app24 = qlik.openApp('Initiatives (1).qvf', config);
+
+	var app25 = qlik.openApp('Initiatives (1).qvf', config);
+
+	var app26 = qlik.openApp('Initiatives (1).qvf', config);
+
+	var app27 = qlik.openApp('Initiatives (1).qvf', config);
+
+	var app28 = qlik.openApp('Initiatives (1).qvf', config);
+
 
 	//get objects -- inserted here --
-	app21.getObject('QV-51','HLjLBQ');
+	app28.getObject('QV-51','gappD');
 	
 	
+	
+
 	app18.getObject('QV-79','QKNPGq');
 	app18.getObject('QV-84','dKJfVK');
 	app18.getObject('QV-80','GQPvuL');
@@ -138,38 +154,9 @@ require(["js/qlik"], function (qlik) {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		
 	app3.getObject('QV-2','TEPLnq');
 	app3.getObject('QV-1','BHFqp');
-	
-	
-	
-	
-	
-	
-
-	
-
-	
 	
 	
 	//create cubes and lists -- inserted here --

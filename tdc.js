@@ -95,9 +95,16 @@ require(["js/qlik"], function (qlik) {
 
 	var app28 = qlik.openApp('Initiatives (1).qvf', config);
 
+	var app29 = qlik.openApp('TDC-13.qvf', config);
+
 
 	//get objects -- inserted here --
-	app28.getObject('QV-51','gappD');
+	app29.getObject('QV-51','HuvcPp');
+	app29.getObject('QV-48','VqPgqy');
+	app29.getObject('QV-47','PbpzVQ');
+	app29.getObject('QV-46','psmppj');
+	
+	
 	
 	
 	
@@ -134,9 +141,9 @@ require(["js/qlik"], function (qlik) {
 	app5.getObject('QV-44','tfCPq');
 	
 	
-	app11.getObject('QV-48','7e17563c-5ed4-4395-a46a-32e1367cbf01');
-	app10.getObject('QV-47','e6300e64-f81c-4d82-89c4-7600b3129010');
-	app9.getObject('QV-46','434027dc-73bc-48d6-8073-ccd74ca0d702');
+	
+	
+	
 	
 	
 	
